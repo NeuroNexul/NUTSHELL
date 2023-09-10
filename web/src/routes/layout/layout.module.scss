@@ -1,0 +1,100 @@
+.main {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+
+    --transition-time: 0.25s;
+    --close-sidebar-width: 50px;
+    --open-sidebar-width: 300px;
+
+    aside {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1000;
+        width: var(--open-sidebar-width);
+        height: 100%;
+        border: 1px solid var(--border-color);
+        border-radius: 0 15px 15px 0;
+        background-color: var(--tertiary-color);
+        overflow-x: hidden;
+
+        transition: width var(--transition-time) ease-in-out;
+        width: var(--close-sidebar-width);
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 999;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        pointer-events: none;
+
+        transition: opacity var(--transition-time) ease-in-out;
+    }
+
+    main {
+        position: relative;
+        z-index: 100;
+        height: 100%;
+        overflow: auto;
+        padding: 1em;
+        width: calc(100% - var(--close-sidebar-width));
+        transform: translateX(var(--close-sidebar-width));
+
+        transition: transform var(--transition-time) ease-in-out, width var(--transition-time) ease-in-out;
+    }
+
+    &[data-sideopen="true"] {
+        aside {
+            width: var(--open-sidebar-width);
+        }
+
+        .overlay {
+            opacity: 1;
+            pointer-events: all;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        aside {
+            width: var(--close-sidebar-width);
+        }
+
+        .overlay {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        main {
+            width: calc(100% - var(--close-sidebar-width));
+            transform: translateX(var(--close-sidebar-width));
+        }
+
+        &[data-sideopen="true"] {
+            aside {
+                width: var(--open-sidebar-width);
+            }
+
+            .overlay {
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            main {
+                width: calc(100% - var(--open-sidebar-width));
+                height: 100%;
+                transform: translateX(var(--open-sidebar-width));
+            }
+        }
+    }
+}

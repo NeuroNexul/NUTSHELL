@@ -1,0 +1,186 @@
+:root {
+    font-size: 16px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    line-height: inherit;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -o-text-size-adjust: 100%;
+
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout: none;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    -webkit-overflow-scrolling: touch;
+
+    color-scheme: light dark;
+}
+
+:root {
+    /* Color Palatte */
+    --bg-color-rgb: 13, 17, 23;
+    --bg-color: rgb(var(--bg-color-rgb));
+
+    --text-color-rgb: 255, 255, 255;
+    --text-color: rgb(var(--text-color-rgb));
+
+    --primary-color-rgb: 37, 169, 140;
+    --primary-color: rgb(var(--primary-color-rgb));
+
+    --secondary-color-rgb: 0, 208, 255;
+    --secondary-color: rgb(var(--secondary-color-rgb));
+
+    --tertiary-color-rgb: 22, 27, 34;
+    --tertiary-color: rgb(var(--tertiary-color-rgb));
+
+    --quaternary-color-rgb: 30, 41, 59;
+    --quaternary-color: rgb(var(--quaternary-color-rgb));
+
+    --border-color-rgb: 48, 54, 61;
+    --border-color: rgb(var(--border-color-rgb));
+
+    --link-color-rgb: 88, 166, 255;
+    --link-color: rgb(var(--link-color-rgb));
+
+    --danger-color-rgb: 220, 53, 69;
+    --danger-color: rgb(var(--danger-color-rgb));
+
+    --success-color-rgb: 40, 167, 69;
+    --success-color: rgb(var(--success-color-rgb));
+
+    --warning-color-rgb: 255, 193, 7;
+    --warning-color: rgb(var(--warning-color-rgb));
+
+    --info-color-rgb: 23, 162, 184;
+    --info-color: rgb(var(--info-color-rgb));
+
+    --selection--bg-color-rgba: 0, 255, 215, 0.561;
+    --selection--bg-color: rgba(var(--selection--bg-color-rgb));
+
+    --selection--text-color-rgb: 255, 255, 255;
+    --selection--text-color: rgb(var(--selection--text-color-rgb));
+
+    /* Color Palatte */
+}
+
+*,
+*::before,
+*::after {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*::selection {
+    background-color: var(--selection--bg-color) !important;
+    color: var(--selection--text-color) !important;
+}
+
+::selection {
+    background-color: var(--selection--bg-color) !important;
+    color: var(--selection--text-color) !important;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #0d1117;
+    color: #ffffff;
+}
+
+#app {
+    height: 100%;
+    width: 100%;
+}
+
+a,
+a:visited {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a.animate {
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
+
+a.animate::after {
+    content: '';
+    position: absolute;
+    top: 105%;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease-in-out;
+}
+
+a.animate:hover::after {
+    width: 100%;
+}
+
+.custom-scrollbar {
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--secondary-color) var(--bg-color);
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: var(--border-color);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.h-full-screen {
+    height: 100vh;
+    height: 100dvh;
+    height: 100svh;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    background-color: transparent;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease-in-out;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+}
+
+button:hover {
+    background-color: var(--quaternary-color);
+}
